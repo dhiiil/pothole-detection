@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import json
+import os
 
 # st.set_page_config(layout='wide')
 st.title('🛣️ Pothole Detection 🛣️')
@@ -44,8 +45,15 @@ def preprocessing(image, target_size):
 
     return flattened_image.reshape(-1, 1)
 
-with open('params.json', 'r') as json_file:
-    params = json.load(json_file)
+params_file_path = os.path.join(os.path.dirname(__file__), 'params.json')
+
+# Periksa apakah file ada
+if os.path.exists(params_file_path):
+    with open(params_file_path, 'r') as json_file:
+        params = json.load(json_file)
+else:
+    st.error(f"File '{params_file_path}' tidak ditemukan. Pastikan file tersebut ada di server.")
+    st.stop()
 
 if uploaded_file is not None:
     pil_image = Image.open(uploaded_file)
