@@ -4,7 +4,7 @@ import cv2
 from PIL import Image
 import json
 
-st.set_page_config(layout='wide')
+# st.set_page_config(layout='wide')
 st.title('🛣️ Pothole Detection 🛣️')
 
 uploaded_file = st.file_uploader("Upload Gambar", type=["jpg", "png", "jpeg"])
