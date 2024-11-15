@@ -62,6 +62,6 @@ if uploaded_file is not None:
     st.header('Hasil Prediksi :')
     predict_res = predict(preprocessed_image, params, layers=(len(preprocessed_image), 128, 128, 1))
 
-    class_predict = 'Jalan Berlubang Moas' if predict==1 else 'Alhamdulillah Jalan Normal'
+    class_predict = 'Jalan Berlubang Moas' if predict_res==1 else 'Alhamdulillah Jalan Normal'
     st.write(class_predict)
 
