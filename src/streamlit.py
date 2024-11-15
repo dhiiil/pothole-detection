@@ -34,7 +34,6 @@ def get_predictions(X):
 
 def predict(X_test, params, layers):
     cache = feed_forward(X_test, params, layers)
-    st.write(cache['A3'].shape)
     predictions = get_predictions(cache[f'A{len(layers)-1}'])
     return predictions.flatten()
 
@@ -58,11 +57,11 @@ else:
 if uploaded_file is not None:
     pil_image = Image.open(uploaded_file)
     image = np.array(pil_image)
-    st.write(image.shape)
     st.image(image, caption="Gambar yang diunggah", use_column_width=True)
     preprocessed_image = preprocessing(image, target_size=(128, 36))
-    st.write(preprocessed_image.T.shape)
+    st.header('Hasil Prediksi :')
     predict_res = predict(preprocessed_image, params, layers=(len(preprocessed_image), 128, 128, 1))
 
-    st.write(predict_res)
+    class_predict = 'Jalan Berlubang Moas' if predict==1 else 'Alhamdulillah Jalan Normal'
+    st.write(class_predict)
 
