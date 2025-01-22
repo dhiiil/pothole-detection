@@ -43,6 +43,7 @@ The following metrics were used to evaluate the model:
 | Model             | Accuracy (%) |
 |-------------------|--------------|
 | Multilayer Perceptron          | 95.6        |
+
 ![Metrics Visualization](src/confusion_matrix.png)
 
 ## Streamlit App
